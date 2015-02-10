@@ -39,6 +39,7 @@
 		});
 
 
+		
 		it('should not crash when instantiated', function() {
 			client = new APIImplementation('a--b');
 		});		

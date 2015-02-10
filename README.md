@@ -33,7 +33,9 @@ description
                 , offsetHandler     : APIClient.queryOffsetHandler
                 , limitHandler      : APIClient.queryLimitHandler
                 , envelopeHandler   : APIClient.dataListEnvelopeHandler
-                , paginator         : new APIClient.envelopePaginator('links.next.href', 'links.previous.href')
+                , paginator         : new APIClient.envelopePaginator(
+                                                    'links.next.href'
+                                                  , 'links.previous.href')
                 , emptyResultStatus : 404
             }
         }
@@ -84,7 +86,11 @@ description
 
 
     // start requesting data
-    api.movies(234).images().limit(100).offset(2).find().then(function(resultSet, paginator) {
+    api.movies(234)
+       .images()
+       .limit(100)
+       .offset(2)
+       .find().then(function(resultSet, paginator) {
         return paginator.next(100);
     }).then(function(resultset, paginator) {
         if (paginator.isLastPage()) {
