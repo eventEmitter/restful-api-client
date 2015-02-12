@@ -1,7 +1,7 @@
 {
       "name"                        : "restful-api-client"
     , "description"                 : "Build RESTful API clients using specifications"
-    , "version"                     : "0.1.0"
+    , "version"                     : "0.1.1"
     , "homepage"                    : "https://github.com/eventEmitter/restful-api-client"
     , "author"                      : "Michael van der Weg <michael@joinbox.com> (http://joinbox.com/)" 
     , "licence"                     : "mit"
@@ -19,9 +19,11 @@
           "ee-class"                : "1.0.x"
         , "ee-types"                : "0.1.x"
         , "ee-log"                  : "0.3.x"
+        , "async-method"            : "0.x.x"
     }
     , "devDependencies": {
-          "mocha"                   : "1.17.x"
+            "mocha"                 : "1.17.x"
+          , "ee-webservice"         : "0.3.x"
     }
     , "optionalDependencies": {}
     , "keywords"                    : ["RESTful", "api client"]

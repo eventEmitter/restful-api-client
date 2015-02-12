@@ -19,14 +19,17 @@
                 , envelopeHandler   : new RESTfulAPIClient.ResponseEnvelopeHandler()
                 , paginator         : new RESTfulAPIClient.EnvelopePaginator('links.next.href', 'links.previous.href')
                 , emptyResultStatus : 404
+                , headers: {
+                    accept: 'application/json'
+                }
             }
         }
         , resources: {
             movies: {
                   list: '/movies'
-                , subEntities: {
+                , resources: {
                     images: {
-                        list: '/movies/{id}/images'
+                        list: '/images'
                     }
                 }
             }

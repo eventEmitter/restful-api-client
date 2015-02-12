@@ -2,7 +2,8 @@
 	
 	var   Class 		= require('ee-class')
 		, log 			= require('ee-log')
-		, assert 		= require('assert');
+		, assert 		= require('assert')
+		, Webservice 	= require('ee-webservice');
 
 
 
@@ -14,6 +15,27 @@
 
 
 	describe('The RESTfulAPIClient', function() {
+		before(function(done) {
+			// setting up the webserver
+			var service = new Webservice({
+				  port:         8000
+    			, interface:    Webservice.IF_ANY
+			});
+
+			// add middlewares for the tests
+			service.use(function(request, response) {
+				response.send(JSON.stringify({
+					data: []
+				}));
+			});
+
+
+			// listen
+			service.listen(done)
+		});
+
+
+
 		it('should not crash when inherited from', function() {
 			APIImplementation = new Class({
 				inherits: RESTfulAPIClient
@@ -39,9 +61,17 @@
 		});
 
 
-		
+
 		it('should not crash when instantiated', function() {
 			client = new APIImplementation('a--b');
-		});		
+		});
+
+
+
+		it('should not crash when instantiated', function() {
+
+			//log(client.movies(3), client.movies(3).images);
+			client.movies(3).images().list();
+		});
 	});
 	
