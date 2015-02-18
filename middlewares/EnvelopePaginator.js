@@ -7,14 +7,14 @@
 
     module.exports = new Class({
 
-          nextLink: 'links.next.href'
-        , prevLink: 'links.previous.href'
+          nextLink: 'links.next.href'.split('.')
+        , prevLink: 'links.previous.href'.split('.')
 
 
 
         , init: function(nextLink, prevLink) {
-            if (nextLink) this.nextLink = nextLink;
-            if (prevLink) this.prevLink = prevLink;
+            if (nextLink) this.nextLink = nextLink.split('.');
+            if (prevLink) this.prevLink = prevLink.split('.');
         }
 
 
@@ -27,7 +27,8 @@
          */
         , parseResponse: function(responseData) {
             return {
-                  next: this._extractEnvelopeData(responseData, this.nextLink)
+                  type: 'envelope'
+                , next: this._extractEnvelopeData(responseData, this.nextLink)
                 , prev: this._extractEnvelopeData(responseData, this.prevLink)
             };
         }

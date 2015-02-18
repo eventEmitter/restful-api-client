@@ -5,8 +5,8 @@
 
 
     module.exports = {
-          host          : 'http://api.cinergy.ch'
-        , baseURL       : '/v1.0/cinema'
+          host          : 'http://localhost:9756'
+        , basePath      : '/prefix'
         , backoffStatus : 429
         , backoffTime   : 10
         , rateLimit     : 60

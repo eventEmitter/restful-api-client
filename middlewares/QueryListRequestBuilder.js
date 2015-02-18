@@ -14,12 +14,14 @@
          * @param <Object> the parameters to apply
          */
         buildRequest: function(request, parameters) {
-            if (type.object(parameters)) {
-                if (!request.query) request.query = parameters;
-                else {
-                    Object.keys(parameters).forEach(function(key) {
-                        parameters[key] = parameters[key];
-                    });
+            if (parameters && parameters.length) {
+                if (type.object(parameters[0])) {
+                    if (!request.query) request.query = parameters[0];
+                    else {
+                        Object.keys(parameters[0]).forEach(function(key) {
+                            request.query[key] = parameters[0][key];
+                        });
+                    }
                 }
             }
         }

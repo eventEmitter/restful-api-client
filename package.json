@@ -19,7 +19,9 @@
           "ee-class"                : "1.0.x"
         , "ee-types"                : "0.1.x"
         , "ee-log"                  : "0.3.x"
+        , "ee-event-emitter"        : "0.x.x"
         , "async-method"            : "0.x.x"
+        , "request-rate-limiter"    : "0.2.x"
     }
     , "devDependencies": {
             "mocha"                 : "1.17.x"
