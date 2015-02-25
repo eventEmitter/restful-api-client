@@ -27,10 +27,65 @@
          */
         , parseResponse: function(responseData) {
             return {
-                  type: 'envelope'
-                , next: this._extractEnvelopeData(responseData, this.nextLink)
+                  next: this._extractEnvelopeData(responseData, this.nextLink)
                 , prev: this._extractEnvelopeData(responseData, this.prevLink)
             };
+        }
+
+
+
+        /**
+         * checks if there is a next page, its possible that 
+         * there is no indication for this, it will return true
+         * in that case
+         *
+         */
+        , hasNextPage: function(response, responseData) {
+            var nextLink = this._extractEnvelopeData(responseData, this.nextLink);
+            return !!nextLink;
+        }
+
+
+
+        /**
+         * checks if there is a next page, its possible that 
+         * there is no indication for this, it will return true
+         * in that case
+         *
+         */
+        , hasPreviousPage: function(response, responseData) {
+            var prevLink = this._extractEnvelopeData(responseData, this.prevLink);
+            return !!prevLink;
+        }
+
+
+
+        /**
+         * prepares the request object for the
+         * next n items of a set
+         *
+         * @param <object> last request config
+         * @param <object> next request
+         * @param <object> current response
+         */
+        , prepareNextRequest: function(originalRequest, newRequest, response, responseData) {
+            var nextLink = this._extractEnvelopeData(responseData, this.nextLink);
+            if (nextLink) newRequest.url = nextLink;
+        }
+
+
+
+        /**
+         * prepares the request object for the
+         * prevois  n items of a set
+         *
+         * @param <object> last request config
+         * @param <object> next request
+         * @param <object> current response
+         */
+        , preparePreviousRequest: function(originalRequest, newRequest, response, data) {
+            var prevLink = this._extractEnvelopeData(responseData, this.prevLink);
+            if (prevLink) newRequest.url = prevLink;
         }
 
 

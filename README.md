@@ -1,6 +1,6 @@
 # restful-api-client
 
-description
+Build RESTful API clients using specifications
 
 ## installation
 
@@ -70,7 +70,7 @@ description
         , prepareRequest: function(request) {
             if (!request.headers) request.headers = {};
 
-            request.headers['cinergy-token'] = this.authToken;
+            request.headers['auth-token'] = this.authToken;
         }
     });
 
@@ -90,10 +90,8 @@ description
        .images()
        .limit(100)
        .offset(2)
-       .find().then(function(resultSet, paginator) {
+       .find().then(function(resultSet) {
         return paginator.next(100);
-    }).then(function(resultset, paginator) {
-        if (paginator.isLastPage()) {
-
-        }
+    }).then(function(resultset) {
+       
     }).catch();
