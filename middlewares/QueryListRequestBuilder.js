@@ -1,7 +1,8 @@
 !function() {
 
     var   Class         = require('ee-class')
-        , log           = require('ee-log');
+        , log           = require('ee-log')
+        , type          = require('ee-types');
 
 
 
