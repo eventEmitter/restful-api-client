@@ -37,7 +37,7 @@
                 if (data[envelope[0]]) { 
                     return this._extractEnvelopeData(data[envelope[0]], envelope.slice(1));
                 }
-                else return undefined;
+                else return data;
             }
             else return data;
         } 
