@@ -1,5 +1,7 @@
 # restful-api-client
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/eventEmitter/restful-api-client.svg)](https://greenkeeper.io/)
+
 Build RESTful API clients using specifications
 
 ## installation
